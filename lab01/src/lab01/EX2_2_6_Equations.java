@@ -32,7 +32,7 @@ public class EX2_2_6_Equations {
 		double e = input.nextDouble();
 		System.out.print("Nhap b22: "); // c + d = f
 		double f = input.nextDouble();
-		System.out.print("He pt: " + a + "*x + " + b + "*y = " + e + "; " + c + "*x + " + d + "*y = " + f  );
+		System.out.print("He pt: " + a + "*x + " + b + "*y = " + e + "; " + c + "*x + " + d + "*y = " + f  + "\n");
 		double dt = a*d - c*b;  // dinh thuc D
 		double dtx = e*d - f*b; // dinh thuc Dx
 		double dty = a*f - c*e; // dinh thuc Dy
@@ -41,13 +41,13 @@ public class EX2_2_6_Equations {
 			double y = dty/dt; // va y = Dy/D
 			System.out.print("He phuong trinh co nghiem duy nhat: (" + x + " ;" + y + " )\n");
 		}
-		else // nguoc lai neu D = 0
-			if (dtx == 0 || dty ==0) { 
-				System.out.print("He phuong trinh vo nghiem\n");// neu Dx hoac Dy = 0 thi hpt vo nghiem
+		else {// nguoc lai neu D = 0
+			if (dtx != 0 || dty !=0) { 
+				System.out.print("He phuong trinh vo nghiem\n");// neu Dx hoac Dy khac 0 thi hpt vo nghiem
 			}
 			else {
 				System.out.print("He phuong trinh co vo so nghiem\n");// nguoc lai co vo so nghiem
-			}
+			}}
 	}
 		
 	public static void ptb2(){
@@ -69,8 +69,8 @@ public class EX2_2_6_Equations {
 				System.out.print("Phuong trinh co nghiem kep: x = " + x + "\n");
 			}
 			else {
-			double x1 = (-b + Math.sqrt(denta)/(2*a));
-			double x2 = (-b - Math.sqrt(denta)/(2*a));
+			double x1 = ((-b + Math.sqrt(denta))/(2*a));
+			double x2 = ((-b - Math.sqrt(denta))/(2*a));
 			System.out.print("Phuong trinh co 2 nghiem : x1 = " + x1 + " ,x2 = " + x2 + "\n"); // nguoc lai co 2 nghiem phan biet
 			} 
 	}
