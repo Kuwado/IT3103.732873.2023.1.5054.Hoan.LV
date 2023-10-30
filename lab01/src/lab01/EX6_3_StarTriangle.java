@@ -1,6 +1,7 @@
 package lab01;
 import java.util.Scanner;
-
+// Luu Viet Hoan
+// 20215054
 public class EX6_3_StarTriangle {
 	public static void main(String[] args){
 		Scanner input = new Scanner(System.in);
@@ -12,11 +13,11 @@ public class EX6_3_StarTriangle {
 			int b = 2*i + 1; // b la so ngoi sao cua moi dong
 			for(int j=0; j<a; j++) {
 				System.out.print(" ");
-			}
+			} // ve khoang trang
 			for(int j=0; j<b; j++) {
 				System.out.print("*");
-			}
-			System.out.print("\n");
+			} // ve ky tu *
+			System.out.print("\n"); // xuong dong
 		}
 	}
 }

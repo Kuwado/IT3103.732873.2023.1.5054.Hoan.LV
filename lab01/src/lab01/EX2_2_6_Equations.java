@@ -1,6 +1,7 @@
 package lab01;
 import java.util.Scanner;
-
+// Luu Viet Hoan
+// 20215054
 public class EX2_2_6_Equations {		
 	public static void ptb1() {   // ham giai pt bac nhat
 		Scanner input = new Scanner(System.in);
@@ -87,13 +88,13 @@ public class EX2_2_6_Equations {
 			n = input.nextInt();
 			switch ( n ) {
 				case 1:
-					ptb1();
+					ptb1(); // thuc hien ham ptb1
 					break;
 				case 2:
-					hptb1();
+					hptb1(); // thuc hien ham hptb1
 					break;
 				case 3:
-					ptb2();
+					ptb2(); // thuc hien ham ptb2
 					break;
 				default:
 					break;

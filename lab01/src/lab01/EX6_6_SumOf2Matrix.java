@@ -1,6 +1,7 @@
 package lab01;
 import java.util.Scanner;
-
+// Luu Viet Hoan
+// 20215054
 public class EX6_6_SumOf2Matrix {
 	public static void main(String[] args){
 		Scanner scanner = new Scanner(System.in);

@@ -1,16 +1,17 @@
 package lab01;
 import javax.swing.JOptionPane;
-
+// Luu Viet Hoan
+// 20215054
 public class EX2_2_5_CaculateTwoNumbers {
 		public static void main (String[] args){
 			String strNum1, strNum2;
 			double num1, num2;
 			do{
 				strNum1 = JOptionPane.showInputDialog(null, "Please input the first number: ", "Input the first number", JOptionPane.INFORMATION_MESSAGE);
-				num1 = Double.parseDouble(strNum1);
+				num1 = Double.parseDouble(strNum1); // nhap so thu nhat
 
 				strNum2 = JOptionPane.showInputDialog(null, "Please input the second number: ", "Input the second number", JOptionPane.INFORMATION_MESSAGE);
-				num2 = Double.parseDouble(strNum2);
+				num2 = Double.parseDouble(strNum2); // nhap so thu 2
 
 				// tinh toan 
 				if (num2 == 0){
