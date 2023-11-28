@@ -1,7 +1,0 @@
-
-public class test {
-	public static void main(String[] args) {
-		float x = 9, y = 5;
-		System.out.println(x>y?x+y:x-y);
-	}
-}
