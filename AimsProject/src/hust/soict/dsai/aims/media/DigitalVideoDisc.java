@@ -1,43 +1,10 @@
 // Luu Viet Hoan
 // 20215054
-package hust.soict.dsai.aims.disc;
+package hust.soict.dsai.aims.media;
 
-public class DigitalVideoDisc {
-	private String title;
-	private String category;
-	private String director;
-	private int length;
-	private float cost;
-	private static int nbDigitalVideoDiscs = 0;
-	private int id;
+public class DigitalVideoDisc extends Disc implements Playable{
 
-	// thuc hien phuong thuc get
-	public String getTitle() {
-		return title;
-	}
-	public String getCategory() {
-		return category;
-	}
-	public String getDirector() {
-		return director;
-	}
-	public int getLength() {
-		return length;
-	}
-	public float getCost() {
-		return cost;
-	}
-	public int getId() {
-        return id;
-    }
-
-	// phuong thuc set
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
-
-	// khoi tao constructor 
+	// Khởi tạo Constructor 
 	public DigitalVideoDisc() {
 		super();
 		this.id = nbDigitalVideoDiscs++;
@@ -75,17 +42,24 @@ public class DigitalVideoDisc {
 		this.cost = cost;
 		this.id = nbDigitalVideoDiscs++;
 	}
-
+	
 	// ham boolean kiem tra title
-	public boolean isMatch(String title) {
-		return getTitle().equals(title);
-	}
-
-	// Luu Viet Hoan - 20215054
-	public String tostring() {
-		return "DVD - " + getTitle() + " - " + getCategory() + " - " +
-				getDirector() + " - " + getLength() + " minutes: " +
+		public boolean isMatch(String title) {
+			return getTitle().equals(title);
+		}
+	
+	// override toString
+	@Override
+	public String toString() {
+		return "DVD - " + getId() + " - " + getTitle() + " - " + getCategory() + " - " +
+				getDirector() + " - " + getLength() + " minutes - " +
 	               getCost() + " $";
+	}
+	
+	// play
+	public void play() {
+		System.out.println("Playing DVD: " + this.getTitle());
+		System.out.println("DVD length: " + this.getLength());
 	}
 
 }

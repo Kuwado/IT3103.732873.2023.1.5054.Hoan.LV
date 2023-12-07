@@ -1,26 +1,38 @@
 package hust.soict.dsai.test.store;
-import hust.soict.dsai.aims.disc.DigitalVideoDisc;
-import hust.soict.dsai.aims.store.Store;
-
+import hust.soict.dsai.aims.media.Book;
+// Lưu Việt Hoàn - 20215054
 public class StoreTest {
 
 	public static void main(String[] args) {
-		Store store = new Store();
+		// tạo một book
+		Book book = new Book("Book Test", "Category", 20f);
+		
+		// in danh sách tác giả trước khi thêm
+		System.out.println("Before add: ");
+		book.showAuthor();
+		
+		// thêm tác giả
+		book.addAuthor("Hoan");
+		book.addAuthor("Nam");
+		book.addAuthor("Quan");
+		
+		// in danh sách tác giả sau khi thêm
+		System.out.println("--------------------------------------------------");
+		System.out.println("After add: ");
+		book.showAuthor();
+		
+		// xóa tác giả 
+		book.removeAuthor("Nam");
+		
+		// in danh sách tác giả sau khi xóa Nam
+		System.out.println("--------------------------------------------------");
+		System.out.println("After remove: ");
+		book.showAuthor();
+		
 
-		// tao dia moi va them vao gio hang
-		DigitalVideoDisc dvd1 = new DigitalVideoDisc("The Lion King", "Animation", "Roger Allers", 87, 19.95f);
-		store.addDVD(dvd1);
-
-		DigitalVideoDisc dvd2 = new DigitalVideoDisc("Star Wars", "Science Fiction", "George Lucas", 87, 24.95f);
-		store.addDVD(dvd2);
-
-		DigitalVideoDisc dvd3 = new DigitalVideoDisc("Aladin", "Animation", 18.99f);
-		store.addDVD(dvd3);
-
-		store.printlist();
-
-		store.removeDVD(1);
-		store.printlist();
+		
+		
+		
 	}
 
 }
