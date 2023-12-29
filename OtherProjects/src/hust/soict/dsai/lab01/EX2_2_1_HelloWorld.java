@@ -1,4 +1,4 @@
-package lab01;
+package hust.soict.dsai.lab01;
 // Luu Viet Hoan 
 // 20215054
 public class EX2_2_1_HelloWorld {

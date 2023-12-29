@@ -2,11 +2,17 @@
 // 20215054
 package hust.soict.dsai.aims.cart;
 import hust.soict.dsai.aims.media.Media;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
+
 import java.util.ArrayList;
 
 public class Cart {
 	public static final int MAX_NUMBERS_ORDERED = 20; // so luong dia toi da trong mot gio hang
-	public static ArrayList<Media> itemsOrdered = new ArrayList<Media>();
+	public static ObservableList<Media> itemsOrdered = FXCollections.observableArrayList();
+	public static FilteredList<Media> filteredMedia = new FilteredList<>(itemsOrdered, p -> true);
 	
 	// Hàm tính tổng tiền
 	public float totalCost() {
@@ -16,6 +22,20 @@ public class Cart {
 		}
 		return total;
 	}
+
+	
+
+	public ObservableList<Media> getItemsOrdered() {
+		return itemsOrdered;
+	}
+
+
+
+	public void setItemsOrdered(ObservableList<Media> itemsOrdered) {
+		this.itemsOrdered = itemsOrdered;
+	}
+
+
 
 	// Hàm thêm Media vào giỏ hàng
 	public void addMedia(Media med) {
@@ -98,5 +118,50 @@ public class Cart {
 			}
 			return med;
 		}
+	
+	
+	public void filterByTitle(String title) {
+		getFilteredMedia().setPredicate(media -> {
+			
+			// nếu filter trống --> show full media
+			if (title == null || title.trim().isEmpty()) {
+				return true;
+			}
+			
+			String lowerCaseFilter = title.toLowerCase();
+			return media.getTitle().toLowerCase().contains(lowerCaseFilter);
+		});
+	}
+
+	
+	
+	public void filterById(String id) {
+		getFilteredMedia().setPredicate(media -> {
+			
+			// nếu filter trống --> show full media
+			if (id == null || id.trim().isEmpty()) {
+				return true;
+			}
+			
+			try {
+	            int idFilter = Integer.parseInt(id.trim());
+
+	            // If the media's ID matches the filter, return true
+	            return media.getId() == idFilter;
+	        } catch (NumberFormatException e) {
+	            // Filter is not a valid integer, continue with string filtering
+	        }
+			
+			String lowerCaseFilter = id.toLowerCase();
+			return media.getTitle().toLowerCase().contains(lowerCaseFilter);
+		});
+	}
+
+
+	public FilteredList<Media> getFilteredMedia() {
+		return filteredMedia;
+	}
+	
+
 
 }

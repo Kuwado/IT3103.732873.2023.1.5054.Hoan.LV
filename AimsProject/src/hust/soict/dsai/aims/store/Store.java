@@ -1,11 +1,26 @@
 package hust.soict.dsai.aims.store;
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
 import hust.soict.dsai.aims.media.Media;
 //Luu Viet Hoan - 20215054
 
 public class Store {
 	private ArrayList<Media> itemsInStore = new ArrayList<Media>();	
-	
+	private PropertyChangeSupport pcs = new PropertyChangeSupport(this);
+
+	public PropertyChangeSupport getPcs() {
+		return pcs;
+	}
+
+	public void setPcs(PropertyChangeSupport pcs) {
+		this.pcs = pcs;
+	}
+
+	public ArrayList<Media> getItemsInStore() {
+		return itemsInStore;
+	}
+
 	// Hàm tìm Media theo Title
 	public Media FindByTitleStore(String Stitle) {
 		Media med = null; // Nếu không thấy trả về null
@@ -19,19 +34,23 @@ public class Store {
 	}
 	
 	// Hàm thêm Media vào Store
-		public void addMedia(Media med) {
+		public String addMedia(Media med) {
+			String str = "";
 			boolean ans = true;
 			for (int i = 0; i < itemsInStore.size(); i++) {// Kiểm tra xem Media đã tồn tại chưa
 				if (med.equals(itemsInStore.get(i))) {
-					System.out.println("San pham da ton tai");// Nếu đã có thì báo lỗi
+					str = "San pham da ton tai";// Nếu đã có thì báo lỗi
 					ans = false;
 					break;
 				}
 			}
 			if (ans) {
+				ArrayList<Media> oldItemsInStore = new ArrayList<Media>(itemsInStore); 
 				itemsInStore.add(med);// Chưa có --> thêm
-				System.out.println("San pham da duoc them vao");
+				pcs.firePropertyChange("itemsInStore", oldItemsInStore, itemsInStore);
+				str = "San pham da duoc them vao";
 			}
+			return str;
 		}
 		
 	// Hàm xóa Media khỏi Store
@@ -56,5 +75,19 @@ public class Store {
 			System.out.println((i+1) + ". " + itemsInStore.get(i).toString());
 		}
 	}
+	
+	
+	
+	public void addPropertyChangeListener(PropertyChangeListener listener) {
+        pcs.addPropertyChangeListener(listener);
+    }
+	
+    public void removePropertyChangeListener(PropertyChangeListener listener) {
+        pcs.removePropertyChangeListener(listener);
+    }
+	
+	
+	
+	
 }
 

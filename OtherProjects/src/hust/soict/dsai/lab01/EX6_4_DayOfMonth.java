@@ -1,4 +1,4 @@
-package lab01;
+package hust.soict.dsai.lab01;
 import java.util.Scanner;
 // Luu Viet Hoan - 20215054
 public class EX6_4_DayOfMonth {
